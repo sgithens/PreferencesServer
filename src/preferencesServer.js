@@ -14,7 +14,7 @@
         });
     };
 
-    fluid.require("../../../../../src/source.js");
+    fluid.require("../../../../../shared/source.js");
         
     process.on("uncaughtException", function (err) {
         console.log("Uncaught Exception: " + err);
@@ -79,6 +79,12 @@
             host: "0.0.0.0",
             port: 5984,
             url: "%db/user/%token"
+        }
+    });
+
+    fluid.demands("gpii.source", "gpii.preferencesServer", {
+        options: {
+            server: "{gpii.preferencesServer}.server"
         }
     });
     
